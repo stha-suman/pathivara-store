@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Product | Pathivara Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html" class="brand"
+          ><span class="brand-mark">P</span
+          ><span
+            ><strong>Pathivara Store</strong
+            ><small>Fashion for Everyone</small></span
+          ></a
+        >
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <nav class="main-nav" id="mainNav">
+          <a href="index.html"><i class="fa-solid fa-house"></i> Home</a
+          ><a href="shop.html"><i class="fa-solid fa-shopping-bag"></i> Shop</a
+          ><a href="index.html#about"
+            ><i class="fa-solid fa-info-circle"></i> About</a
+          ><a href="index.html#contact"
+            ><i class="fa-solid fa-phone-volume"></i> Contact</a
+          >
+        </nav>
+        <div class="nav-actions">
+          <button class="icon-btn" id="themeToggle">☾</button
+          ><button class="lang-btn active" data-lang="en">EN</button
+          ><button class="lang-btn" data-lang="ne">ने</button
+          ><a class="account-link" href="account.php"><i class="fa-solid fa-user"></i> Account</a
+          ><a class="cart-btn" href="cart.html"
+            >🛒 <span id="cartCount">0</span></a
+          >
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="product-detail-section">
+        <div class="container" id="productDetail"></div>
+      </section>
+      <section class="section related-section">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">YOU MAY ALSO LIKE</p>
+              <h2>Related products</h2>
+            </div>
+          </div>
+          <div class="product-grid" id="relatedGrid"></div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-bottom">
+        © 2026 Pathivara Store · Phungling, Taplejung ·
+        <a href="tel:9842743833">9842743833</a>
+      </div>
+    </footer>
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/product.js"></script>
+  </body>
+</html>

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Cart & Checkout | Pathivara Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html" class="brand"
+          ><span class="brand-mark">P</span
+          ><span
+            ><strong>Pathivara Store</strong
+            ><small>Fashion for Everyone</small></span
+          ></a
+        ><a href="shop.html" class="back-link"><i class="fa-solid fa-angles-left"></i> Continue Shopping</a>
+        <div class="nav-actions">
+          <button class="icon-btn" id="themeToggle">☾</button
+          ><button class="lang-btn active" data-lang="en">EN</button
+          ><button class="lang-btn" data-lang="ne">ने</button>
+          <a class="account-link" href="account.php"><i class="fa-solid fa-user"></i> Account</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="cart-section">
+        <div class="container">
+          <p class="eyebrow">PATHIVARA STORE</p>
+          <h1>Cart & Checkout</h1>
+          <div class="checkout-steps">
+            <span class="active">1. Cart</span><span>→</span
+            ><span>2. Customer Details</span><span>→</span
+            ><span>3. WhatsApp Order</span>
+          </div>
+          <div id="emptyCart" class="empty-cart" hidden>
+            <div>🛒</div>
+            <h2>Your cart is empty</h2>
+            <p>Add products before checking out.</p>
+            <a class="btn btn-primary" href="shop.html">Browse Products</a>
+          </div>
+          <div class="cart-layout" id="checkoutLayout">
+            <div>
+              <h2 class="checkout-heading">Your Products</h2>
+              <div id="cartItems"></div>
+              <div class="customer-card">
+                <p class="eyebrow">CUSTOMER DETAILS</p>
+                <h2>Where should we contact you?</h2>
+                <p id="accountRequired" class="account-message">Please <a href="account.php">sign in or create an account</a> to continue. Your saved delivery details will appear here automatically.</p>
+                <form id="checkoutForm" novalidate>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="customerName">Full Name *</label
+                      ><input
+                        id="customerName"
+                        autocomplete="name"
+                        required
+                        readonly
+                        placeholder="Your full name"
+                      /><small class="error" id="nameError"></small>
+                    </div>
+                    <div class="field">
+                      <label for="customerPhone">Phone Number *</label
+                      ><input
+                        id="customerPhone"
+                        inputmode="tel"
+                        autocomplete="tel"
+                        required
+                        readonly
+                        placeholder="98XXXXXXXX"
+                      /><small class="error" id="phoneError"></small>
+                    </div>
+                    <div class="field field-wide">
+                      <label for="customerAddress"
+                        >Delivery / Contact Address *</label
+                      ><textarea
+                        id="customerAddress"
+                        autocomplete="street-address"
+                        required
+                        readonly
+                        placeholder="Ward, tole, municipality, district"
+                      ></textarea
+                      ><small class="error" id="addressError"></small>
+                    </div>
+                    <div class="field">
+                      <label for="customerCity">City / Area</label
+                      ><input
+                        id="customerCity"
+                        value="Phungling, Taplejung"
+                        autocomplete="address-level2"
+                        readonly
+                      />
+                    </div>
+                    <div class="field">
+                      <label for="deliveryNote">Delivery Notes</label
+                      ><input
+                        id="deliveryNote"
+                        placeholder="Optional instructions"
+                      />
+                    </div>
+                  </div>
+                  <p class="privacy-note">
+                    Your details are used only to prepare your order message for
+                    Pathivara Store. Final availability and delivery charge will
+                    be confirmed by the store.
+                  </p>
+                  <button type="submit" class="btn btn-primary checkout-submit">
+                    Review WhatsApp Order →
+                  </button>
+                </form>
+              </div>
+            </div>
+            <aside class="summary-card">
+              <h2>Order Summary</h2>
+              <div class="summary-row">
+                <span>Items</span><strong id="itemCount">0</strong>
+              </div>
+              <div class="summary-row">
+                <span>Subtotal</span><strong id="subtotal">Rs. 0</strong>
+              </div>
+              <div class="summary-row">
+                <span>Delivery</span><span>To be confirmed</span>
+              </div>
+              <hr />
+              <div class="summary-row total">
+                <span>Estimated Total</span><strong id="total">Rs. 0</strong>
+              </div>
+              <div class="checkout-side-note">
+                Delivery charge is confirmed by the store based on location and
+                order.
+              </div>
+            </aside>
+          </div>
+          <div class="order-review" id="orderReview" hidden>
+            <div class="review-card">
+              <div class="success-icon">✓</div>
+              <p class="eyebrow">ORDER REVIEW</p>
+              <h2>Your order is ready</h2>
+              <p class="review-ref">
+                Reference: <strong id="orderReference"></strong>
+              </p>
+              <div id="reviewContent"></div>
+              <div class="review-actions">
+                <button class="btn btn-whatsapp" id="sendWhatsApp">
+                  Open WhatsApp & Send Order</button
+                ><button class="btn btn-outline" id="editOrder">
+                  ← Edit Details
+                </button>
+              </div>
+              <p class="summary-note">
+                Opening WhatsApp does not by itself confirm the order. Send the
+                message and wait for Pathivara Store to confirm availability and
+                delivery.
+              </p>
+            </div>
+          </div>
+          <div class="confirmation" id="confirmation" hidden>
+            <div class="success-icon">✓</div>
+            <p class="eyebrow">MESSAGE PREPARED</p>
+            <h2>WhatsApp is ready</h2>
+            <p>
+              Your order reference is <strong id="confirmedReference"></strong>.
+              Send the prepared message in WhatsApp, then wait for the store to
+              confirm your order.
+            </p>
+            <div class="review-actions">
+              <a class="btn btn-primary" href="shop.html">Continue Shopping</a
+              ><button class="btn btn-outline" id="backToOrder">
+                View Order
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-bottom">
+        © 2026 Pathivara Store · Phungling, Taplejung ·
+        <a href="tel:9842743833">9842743833</a>
+      </div>
+    </footer>
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+  </body>
+</html>

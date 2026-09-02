@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Shop | Pathivara Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html" class="brand"
+          ><span class="brand-mark">P</span
+          ><span
+            ><strong>Pathivara Store</strong
+            ><small>Fashion for Everyone</small></span
+          ></a
+        >
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <nav class="main-nav" id="mainNav">
+          <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+          <a class="active" href="shop.html"><i class="fa-solid fa-shopping-bag"></i> Shop</a>
+          <a href="index.html#about"><i class="fa-solid fa-info-circle"></i> About</a>
+          <a href="index.html#contact"><i class="fa-solid fa-phone-volume"></i> Contact</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="icon-btn" id="themeToggle">☾</button
+          ><button class="lang-btn active" data-lang="en">EN</button
+          ><button class="lang-btn" data-lang="ne">ने</button
+          ><a class="account-link" href="account.php"><i class="fa-solid fa-user"></i> Account</a
+          ><a class="cart-btn" href="cart.html"
+            >🛒 <span id="cartCount">0</span></a
+          >
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow">PATHIVARA STORE</p>
+          <h1 data-en="Shop our collection" data-ne="हाम्रो कलेक्सन हेर्नुहोस्">
+            Shop our collection
+          </h1>
+          <p
+            data-en="Clothing for men, women and kids, plus sarees and seasonal styles."
+            data-ne="पुरुष, महिला र बालबालिकाका कपडा, सारी तथा नयाँ फेसन।"
+          >
+            Clothing for men, women and kids, plus sarees and seasonal styles.
+          </p>
+        </div>
+      </section>
+      <section class="shop-section">
+        <div class="container">
+          <div class="shop-toolbar">
+            <div class="search-box">
+              <span>⌕</span
+              ><input
+                id="searchInput"
+                type="search"
+                placeholder="Search products..."
+              />
+            </div>
+            <select id="sortSelect">
+              <option value="featured">Featured</option>
+              <option value="low">Price: Low to High</option>
+              <option value="high">Price: High to Low</option>
+              <option value="name">Name A-Z</option>
+            </select>
+          </div>
+          <div class="category-pills" id="categoryPills">
+            <button class="filter-btn active" data-filter="All">All</button
+            ><button class="filter-btn" data-filter="Men">Men</button
+            ><button class="filter-btn" data-filter="Women">Women</button
+            ><button class="filter-btn" data-filter="Kids">Kids</button
+            ><button class="filter-btn" data-filter="Sarees">Sarees</button>
+          </div>
+          <p class="results-count" id="resultsCount"></p>
+          <div class="product-grid" id="shopGrid"></div>
+          <div class="empty-state" id="emptyState" hidden>
+            <div>🔎</div>
+            <h2>No products found</h2>
+            <p>Try another search or category.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-bottom">
+        © 202 Pathivara Store · Phungling, Taplejung ·
+        <a href="tel:9842743833">9842743833</a>
+      </div>
+    </footer>
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/shop.js"></script>
+  </body>
+</html>

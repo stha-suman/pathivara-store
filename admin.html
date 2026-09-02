@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Pathivara Store Admin</title>
+    <link rel="stylesheet" href="admin/css/admin.css" />
+  </head>
+  <body>
+    <div class="login-view" id="loginView" hidden></div>
+    <div class="app" id="app" hidden>
+      <aside class="sidebar">
+        <div class="side-brand">
+          <span class="logo small">P</span><strong>Pathivara</strong>
+        </div>
+        <nav>
+          <button class="side-link active" data-s="dashboard">
+            ▦ <span>Dashboard</span></button
+          ><button class="side-link" data-s="products">
+            ◈ <span>Products</span></button
+          ><button class="side-link" data-s="orders">
+            ▤ <span>Orders</span></button
+          ><button class="side-link" data-s="settings">
+            ⚙ <span>Settings</span>
+          </button>
+        </nav>
+        <a class="store-link" href="index.html">↗ View Store</a
+        ><a class="logout" href="logout.php">↪ Logout</a>
+      </aside>
+      <div class="main-area">
+        <header class="topbar">
+          <button class="hamburger" id="hamb">☰</button>
+          <div>
+            <strong id="title">Dashboard</strong
+            ><small>Secure server database</small>
+          </div>
+          <span class="admin-badge">Admin</span>
+        </header>
+        <main class="content">
+          <section class="admin-section active" id="dashboard">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">OVERVIEW</p>
+                <h1>Dashboard</h1>
+              </div>
+              <button class="btn primary" id="add">+ Add Product</button>
+            </div>
+            <div class="stats">
+              <div class="stat">
+                <span>Products</span><strong id="sp">0</strong>
+              </div>
+              <div class="stat">
+                <span>Low Stock</span><strong id="sl">0</strong>
+              </div>
+              <div class="stat">
+                <span>Orders</span><strong id="so">0</strong>
+              </div>
+              <div class="stat">
+                <span>Pending</span><strong id="sn">0</strong>
+              </div>
+            </div>
+            <div class="dashboard-grid">
+              <div class="panel">
+                <div class="panel-head"><h2>Recent Orders</h2></div>
+                <div id="recent"></div>
+              </div>
+              <div class="panel">
+                <div class="panel-head"><h2>Low Stock</h2></div>
+                <div id="low"></div>
+              </div>
+            </div>
+          </section>
+          <section class="admin-section" id="products">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">CATALOG</p>
+                <h1>Products</h1>
+              </div>
+              <button class="btn primary" id="add2">+ Add Product</button>
+            </div>
+            <div class="toolbar">
+              <input id="pq" placeholder="Search products" /><select id="pc">
+                <option>All</option>
+                <option>Men</option>
+                <option>Women</option>
+                <option>Kids</option>
+                <option>Sarees</option>
+              </select>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="pt"></tbody>
+              </table>
+            </div>
+          </section>
+          <section class="admin-section" id="orders">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">CUSTOMERS</p>
+                <h1>Orders</h1>
+              </div>
+            </div>
+            <div class="toolbar">
+              <input id="oq" placeholder="Search order/customer" /><select
+                id="os"
+              >
+                <option>All</option>
+                <option>New</option>
+                <option>Confirmed</option>
+                <option>Processing</option>
+                <option>Ready</option>
+                <option>Delivered</option>
+                <option>Cancelled</option>
+              </select>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Order</th>
+                    <th>Customer</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="ot"></tbody>
+              </table>
+            </div>
+          </section>
+          <section class="admin-section" id="settings">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">STORE</p>
+                <h1>Settings</h1>
+              </div>
+            </div>
+            <div class="settings-grid">
+              <div class="panel">
+                <h2>Store Information</h2>
+                <label>Name<input id="snm" /></label
+                ><label>Phone<input id="sph" /></label
+                ><label>Location<input id="sloc" /></label
+                ><label>WhatsApp<input id="swa" /></label
+                ><button class="btn primary" id="save">Save</button>
+              </div>
+              <div class="panel">
+                <h2>Security</h2>
+                <p class="muted">
+                  Passwords are stored with PHP password hashing. Admin writes
+                  use CSRF protection and sessions.
+                </p>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <div class="modal-backdrop" id="pm" hidden>
+      <div class="modal">
+        <button class="modal-close" id="close">×</button>
+        <p class="eyebrow">PRODUCT</p>
+        <h2 id="mt">Add Product</h2>
+        <form id="pf">
+          <input id="id" type="hidden" />
+          <div class="form-grid">
+            <label>Name<input id="n" required /></label
+            ><label
+              >Category<select id="c">
+                <option>Men</option>
+                <option>Women</option>
+                <option>Kids</option>
+                <option>Sarees</option>
+              </select></label
+            ><label>Price<input id="pr" type="number" min="0" required /></label
+            ><label>Stock<input id="st" type="number" min="0" required /></label
+            ><label class="wide">Image URL<input id="im" type="url" placeholder="https://example.com/product.jpg" /></label
+            ><label class="wide"
+              >Description<textarea id="de"></textarea>
+            </label>
+          </div>
+          <div class="modal-actions">
+            <button type="button" class="btn outline" id="cancel">Cancel</button
+            ><button class="btn primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="admin/js/live-admin.js"></script>
+  </body>
+</html>

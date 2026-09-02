@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Pathivara Store clothing shop in Phungling, Taplejung." />
+		<title>Pathivara Store | Fashion for Everyone</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<header class="site-header">
+			<div class="container nav-wrap">
+				<a href="index.html" class="brand">
+					<span class="brand-mark">PS</span>
+					<span>
+						<strong>Pathivara Store</strong>
+						<small>Fashion for Everyone</small>
+					</span>
+				</a>
+				<button class="menu-toggle" id="menuToggle">☰</button>
+				<nav class="main-nav" id="mainNav">
+					<a class="active" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+					<a href="shop.html"><i class="fa-solid fa-shopping-bag"></i> Shop</a>
+					<a href="#about"><i class="fa-solid fa-info-circle"></i> About</a>
+					<a href="#contact"><i class="fa-solid fa-phone-volume"></i> Contact</a>
+				</nav>
+				<div class="nav-actions">
+					<button class="icon-btn" id="themeToggle">☾</button>
+					<button class="lang-btn active" data-lang="en">EN</button>
+					<button class="lang-btn" data-lang="ne">ने</button>
+					<a class="account-link" href="account.php"><i class="fa-solid fa-user"></i> Account</a>
+					<a class="cart-btn" href="cart.html">🛒 <span id="cartCount">0</span></a>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<section class="page-hero">
+				<div class="container">
+					<p class="eyebrow">PATHIVARA STORE • PHUNGLING</p>
+					  <h1 data-en="Fashion for every generation." data-ne="हरेक पुस्ताका लागि फेसन।">Fashion for every generation.</h1>
+					  <p data-en="Men's, women's and kids' clothing, sarees, shirts, jeans and more." data-ne="पुरुष, महिला र बालबालिकाका कपडा, सारी, सर्ट, जिन्स र अन्य।">
+						Men's, women's and kids' clothing, sarees, shirts, jeans and more.
+					</p>
+					<a class="btn btn-primary" href="shop.html">Shop Now</a>
+				</div>
+			</section>
+<br>
+			<section class="section">
+				<div class="container">
+					<div class="section-heading">
+						<div>
+							<p class="eyebrow">SHOP</p>
+							<h2>Featured collection</h2>
+						</div>
+						<a class="btn btn-outline" href="shop.html">View All Products →</a>
+					</div>
+					<div class="product-grid" id="homeGrid"></div>
+				</div>
+			</section>
+<br>
+			<section class="offer-section">
+				<div class="container">
+					<div class="offer">
+						<div>
+							<p class="eyebrow">SPECIAL OFFER</p>
+							<h2>Fresh styles for every occasion.</h2>
+							<p>Visit Pathivara Store in Phungling and explore our latest collection.</p>
+						</div>
+					</div>
+				</div>
+					 <div class="map-container">
+        					<div class="map-header">
+								<span>OUR LOCATION</span><br>
+								<i class="fa-solid fa-map-location-dot"></i>
+           							<h2>Find Us on Google Maps</h2>
+           					 <p>
+                				Visit us at our location. Use the map below to
+                				view our exact location and get directions.
+            				</p>
+        			</div>
+        <div class="google-map">
+            <iframe
+                src="https://www.google.com/maps?q=27.35549478333769, 87.66834827133795&z=15&output=embed"
+                width="100%"
+                height="500"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+	<br>									
+			</section>		
+		</main>
+
+		<footer class="site-footer">
+			<div class="container footer-grid">
+				<div class="footer-brand">
+					<a href="index.html" class="brand">
+						<span class="brand-mark">PS</span>
+						<span>
+							<strong>Pathivara Store</strong>
+							<small>Fashion for Everyone</small>
+						</span>
+					</a>
+					<p>Everyday clothing and traditional fashion for the whole family in Phungling, Taplejung.</p>
+				</div>
+				<div class="footer-links">
+					<p class="footer-title">Explore</p>
+					<a href="index.html"><i class="fa-solid fa-house"></i>  Home</a>
+					<a href="shop.html"><i class="fa-solid fa-shopping-bag"></i>  Shop</a>
+					<a href="#about"><i class="fa-solid fa-info-circle"></i>  About Us</a>
+				</div>
+				<div class="footer-contact">
+					<p class="footer-title">Get in touch</p>
+					<a href="tel:9842743833"><i class="fa-solid fa-phone-volume"></i> 9842743833</a>
+					<span><i class="fa-solid fa-location-dot"></i></i> Phungling, Taplejung, Nepal</span>
+					<a href="https://wa.me/9779842743833" target="_blank"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+				</div>
+			</div>
+			<div class="container footer-bottom">© 2026 Pathivara Store <span>·</span> All rights reserved.</div>
+		</footer>
+
+		<script src="js/products.js"></script>
+		<script src="js/main.js"></script>
+		<script>
+			document.getElementById("homeGrid").innerHTML = products.slice(0, 4).map((p) => `
+				<article class="product-card">
+					<a href="product.html?id=${p.id}" class="product-image">
+						<img src="${p.image}" alt="${p.name}" loading="lazy">
+					</a>
+					<div class="product-info">
+						<h3>${p.name}</h3>
+						<div class="product-meta">${p.category}</div>
+						<div class="price">Rs. ${p.price.toLocaleString("en-IN")}</div>
+						<div class="product-actions">
+							<a class="btn btn-outline" href="product.html?id=${p.id}">View</a>
+							<button class="btn btn-primary" onclick="addToCart(${p.id})">Add to Cart</button>
+						</div>
+					</div>
+				</article>`).join("");
+		</script>
+	</body>
+</html>
